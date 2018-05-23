@@ -1,0 +1,155 @@
+/* Apt Section */
+
+.apt-wrapper {
+    /* background-color: #efefef; */
+    /* height: 800px; */
+}
+
+/* Date Picker */
+
+.date-picker {
+    margin: 0 auto;
+    text-align: center;
+    height: 350px;
+}
+
+/* Removes the clear button from date inputs */
+
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+/* Removes the spin button */
+
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+/* Always display the drop down caret */
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #cc9f56;
+}
+
+/* A few custom styles for date inputs */
+
+input[type="date"] {
+    -webkit-appearance: none;
+    color: #cc9f56;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 1.5em;
+    border: 1px solid #cc9f56;
+    background: #ecf0f1;
+    padding: 15px;
+    display: inline-block !important;
+    visibility: visible !important;
+    width: 22%;
+    outline: none;
+}
+
+input[type="date"],
+focus {
+    color: #cc9f56;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+table {
+    border: none;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.row td {
+    padding: 20px 10px;
+    width: 120px;
+    cursor: pointer;
+    background-color: #efefef;
+    /* font-size: 2em; */
+    color: #cc9f56;
+    /* letter-spacing: .3em; */
+    margin: 2px;
+    transition: 350ms background-color;
+    /* transition: 350ms color; */
+    /* cursor: not-allowed; */
+    text-align: center;
+}
+
+.row td:hover {
+    background-color: #cc9f56;
+    color: #fff;
+}
+
+.hour {
+    font-size: 2em;
+    margin-right: 5px;
+}
+
+.book-cta {
+    margin: 100px auto;
+    text-align: center;
+}
+
+.apt-cta {
+    padding: 25px 30px;
+    background-color: rgb(204, 159, 86);
+    color: white;
+    font-size: 1.1em;
+    letter-spacing: 0.2em;
+    transition: 350ms background-color;
+    cursor: pointer;
+}
+
+.apt-cta:hover {
+    background-color: rgb(0, 0, 0);
+}
+
+.slot-times {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.slot-time {
+    flex-basis: 120px;
+    background-color: #efefef;
+    padding: 20px 10px;
+    color: #cc9f56;
+    margin: 2px;
+    cursor: pointer;
+    transition: 350ms background-color;
+}
+.slot-time:hover {
+    background-color: #cc9f56;
+    color: #fff;
+}
+
+.select {
+    background-color: #cc9f56;
+    color: #fff;
+}
+
+/* Success Message */
+
+.success {
+    display: none;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 250px;
+}
+
+.success h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #cc9f56;
+    font-size: 1.5em;
+    margin-bottom: 50px;
+}
+
+.message {
+    font-size: 1.2em;
+}

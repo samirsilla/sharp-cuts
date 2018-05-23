@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sharp Cuts Barbershop</title>
+    <title>Sharp Barber Spa</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    
 </head>
 <body>
 
-    <header>
+    <header class="page-header">
         <div class="brand">
-            <h2>Sharp Cuts Barber Spa</h2>
+            <h3>Sharp Barber Spa</h3>
         </div> <!-- .brand -->
 
         <nav>
-            <a href="#">Book Appointment</a>
+            <a href="book.html">Book Appointment</a>
+            <i class="fas fa-circle"></i>
             <a href="#">Services</a>
+            <i class="fas fa-circle"></i>
             <a href="#">About</a>
+            <i class="fas fa-circle"></i>
             <a href="#">Contact</a>
         </nav>
     </header>
@@ -26,20 +31,21 @@
     <main>
         <section>
             <div class="hero-wrapper">
-                <h3>Sharp Cuts Barber Spa offers men an indulgent grooming experience in a masculine and luxurious environment.</h3>
-                <a href="#">Book Appointment Now</a>
+                <a class="cta hero-cta" href="book.html">Book Appointment</a>
             </div> <!-- .hero-wrapper -->
         </section>
 
         <section>
-            <div class="services-wrapper">
+            <div class="section-wrapper">
                 <header>
-                    <h3>Services</h3>
+                    <h3 class="section-heading">Services</h3>
+                    <div class="thin-gold-line on-heading"></div>
                 </header>
+                <div class="services-wrapper">
                 <div class="service-wrapper">
                     <header class="service-header">
                         <h3>Haircut</h3>
-                        <h4>$54.00</h4>
+                        <h4><span class="dollar">$</span> 54</h4>
                     </header>
                     <div class="service-list">
                         <ul>
@@ -55,14 +61,14 @@
                         </ul>
                     </div> <!-- .service-list -->
                     <div class="book">
-                        <a href="#">Book Now</a>
+                        <a class="pricing-cta" href="book.html">Book Now</a>
                     </div>
                 </div> <!-- .service-wrapper -->
 
-                <div class="service-wrapper">
+                <div class="service-wrapper breathe">
                     <header class="service-header">
                         <h3>Shave</h3>
-                        <h4>$47.00</h4>
+                        <h4><span class="dollar">$</span> 47</h4>
                     </header>
                     <div class="service-list">
                         <ul>
@@ -78,14 +84,14 @@
                         </ul>
                     </div> <!-- .service-list -->
                     <div class="book">
-                        <a href="#">Book Now</a>
+                        <a class="pricing-cta" href="book.html">Book Now</a>
                     </div>
                 </div> <!-- .service-wrapper -->
 
                 <div class="service-wrapper">
                     <header class="service-header">
                         <h3>Haircut + Shave</h3>
-                        <h4>$112.00</h4>
+                        <h4><span class="dollar">$</span>112</h4>
                     </header>
                     <div class="service-list">
                         <ul>
@@ -98,89 +104,106 @@
                         </ul>
                     </div> <!-- .service-list -->
                     <div class="book">
-                        <a href="#">Book Now</a>
+                        <a class="pricing-cta" href="book.html">Book Now</a>
                     </div>
                 </div> <!-- .service-wrapper -->   
-
-            </div> <!-- .services-wrapper -->             
+                </div> <!-- .services-wrapper -->
+            </div> <!-- .section-wrapper -->                
         </section>
 
         <section>
-            <div class="about-wrapper">
+            <div class="section-wrapper">
                 <header>
-                    <h3>About</h3>
+                    <h3 class="section-heading">About</h3>
+                    <div class="thin-gold-line on-heading"></div>
                 </header>
 
-                <h4>"It's not wise to violate rules until you know how to observe them."</h4>
+                <h4 class="about-quote">"It's not wise to violate rules until you know how to observe them."</h4>
 
-                <div class="col">
-                    <p>
-                        At Sharp Cuts, we take pride in providing luxury quality,yet affordable men's hair and grooming services, within a relaxed, yet stylish environment. We place emphasis on precision and attention to detail, not only during our hair cuts but from the moment you walk through our door.
-                    </p>
-                    <p>
-                        Our Master Barbers are expertly trained to provide a range of services featuring our products and pure essential oils to leave clients well-groomed and relaxed. 
-                    </p>
-                </div> <!-- .col -->
+                <div class="col-wrapper">
+                    <div class="col first">
+                        <p>
+                            At Sharp Cuts, we take pride in providing luxury quality,yet affordable men's hair and grooming services, within a relaxed, yet stylish environment. We place emphasis on precision and attention to detail, not only during our hair cuts but from the moment you walk through our door.
+                        </p>
+                        <p>
+                            Our Master Barbers are expertly trained to provide a range of services featuring our products and pure essential oils to leave clients well-groomed and relaxed. 
+                        </p>
+                    </div> <!-- .col -->
 
-                <div class="col">
-                    <p>
-                        As modern gentlemen we understand that looking good is important - and can impact on how we feel about ourselves and how we are perceived by others. We also know that busy lifestyles don't often allow much opportunity to kick back and unwind.
-                    </p>
-                    <p>
-                        You may just find, once you've arrived on our quiet cobbled street in Bourbon Loop, chilled out in our cosy waiting area with a selection of complimentary refreshments, listening to our smooth background music while flicking through sports magazines, that perhaps Sharp Cuts could become part of your regular routine.
-                    </p>
-                </div>
+                    <div class="col second">
+                        <p>
+                            As modern gentlemen we understand that looking good is important - and can impact on how we feel about ourselves and how we are perceived by others. We also know that busy lifestyles don't often allow much opportunity to kick back and unwind.
+                        </p>
+                        <p>
+                            You may just find, once you've arrived on our quiet cobbled street in Bourbon Loop, chilled out in our cozy waiting area with a selection of complimentary refreshments, listening to our smooth background music while flicking through sports magazines, that perhaps Sharp Barber Spa could become part of your regular routine.
+                        </p>
+                    </div>
                 <!-- .col -->
+                </div> <!-- .col-wrapper -->
 
                 <div class="team">
-                    <!-- TODO: Background img of team here -->
-                </div>
+                </div> <!-- .team -->
 
 
             </div> <!-- .about-wrapper -->
         </section>
 
         <section>
-            <div class="contact-wrapper">
-                <div class="map">
-                    <h4>map will go here</h4>
-                </div> <!-- .map -->
-                
-                <div class="contact-info">
-                    <div>
-                        Open 7 days a week 9 AM - 6 PM
-                    </div>
-                    <div>
-                        847 - 834 - 0982
-                    </div>
-                    <div>
-                        914 Boxley Ln. Boston, MA 25896
-                    </div>
-                </div> <!-- .contact-info -->
-            </div> <!-- .contact-wrapper -->
+            <div class="section-wrapper">
+                <div class="section-heading">
+                    Contact
+                </div>
+                <div class="thin-gold-line on-heading"></div>
+                <div class="contact-wrapper">
+                    <div class="map" id="map">
+                        <h4>map will go here</h4>
+                    </div> <!-- .map -->
+                    
+                    <div class="contact-info">
+                        <div>
+                            Open 7 days a week 9 AM - 6 PM
+                        </div>
+                        <div class="thin-gold-line"></div>
+                        <div>
+                            847 - 834 - 0982
+                        </div>
+                        <div>
+                            hello@sharpbarberspa.com
+                        </div>
+                        <div class="thin-gold-line"></div>
+                        <div>
+                            914 Boxley Ln. Boston, MA 25896
+                        </div>
+                    </div> <!-- .contact-info -->
+                </div> <!-- .contact-wrapper -->
+            </div> <!-- .section-wrapper -->
         </section>
 
-        <section>
-            <div class="apt-wrapper">
-                Apt booking stuff will go in here
-
-            </div> <!-- .apt-wrapper -->
-        </section>
+        
 
     </main>
     <footer>
         <div class="footer-wrapper">
             <div class="footer-logo">
-                <h2>Sharp Cuts Barber Spa</h2>
+                <h3>Sharp Barber Spa</h3>
             </div>
+            <!-- <div class="thin-gold-line"></div> -->
             <div class="social-links">
-                <!-- TODO: Insert font awesome icons here -->
+                <i class="fab fa-facebook-square social-icon"></i>
+                <i class="fab fa-snapchat-ghost social-icon"></i>
+                <i class="fab fa-twitter social-icon"></i>
+                <i class="fab fa-instagram social-icon"></i>
+                
             </div>
+            <!-- <div class="thin-gold-line"></div> -->
             <div class="copyright">
-                &copy; 2018 Sharp Cuts Barber Spa. All Rights Reserved.
+                &copy; 2018 Sharp Barber Spa. All Rights Reserved.
             </div>
         </div> <!-- .footer-wrapper -->
     </footer>
 </body>
+
 <script src="js/app.js"></script>
+<script src="js/map.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 </html>

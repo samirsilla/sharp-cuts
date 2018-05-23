@@ -1,3 +1,415 @@
+/* 
+    main.css
+    contains styling for global elements relevant to the entire site
+*/
+
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url(../assets/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(../assets/OpenSans-Regular.ttf);
+}
+
+:root {
+    --main-font-family: 'Lato-Regular', helvetica, sans-serif;
+}
+
 body {
-    /* background-color: red; */
+    font: 100%/1.5 var(--main-font-family);
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+
+}
+
+nav {
+
+}
+
+/* Page Header */
+
+.page-header {
+    background-color: black;
+    height: 50px;
+    padding: 10px 40px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    color: #efefef;
+}
+
+.brand {
+    flex-basis: 100%;
+}
+
+.brand h3 {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: #efefef;
+    transition: 350ms color; 
+    cursor: pointer;
+}
+
+.brand h3:hover {
+    color: #aaa;
+}
+
+nav {
+    flex-basis: 50%;
+    text-align: right;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav a {
+    color: #efefef;
+    text-transform: uppercase;
+    font-size: .8em;
+    border-bottom: 1px solid #000;
+    transition: 350ms ease-out border-bottom;
+}
+
+nav a:hover {
+    border-bottom: 1px solid #efefef;
+}
+
+.fa-circle {
+    font-size: 5px;
+    color: #a98244;
+}
+
+/* Hero Section */
+
+.hero-wrapper {
+    height: 850px;
+    background-image: url('../images/hero.jpg');
+    overflow: hidden;
+    background-size: cover;
+    position: relative;
+}
+
+.cta {
+    background-color: rgb(169, 130, 68, 0.8);
+    padding: 20px 25px;
+    color: #efefef;
+    text-transform: uppercase; 
+}
+
+.hero-cta {
+    position: absolute;
+    top: 85%;
+    left: 40%;
+    transition: 350ms background-color;
+}
+
+.hero-cta:hover {
+    background-color: rgb(0, 0, 0, 0.8);
+}
+
+/* Services Section */
+
+.section-wrapper {
+    padding: 100px 40px 0 40px;
+}
+
+.section-heading {
+    color: rgb(169, 130, 68);
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 2em;
+    letter-spacing: .3em;
+}
+
+.services-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.service-wrapper {
+    flex-basis: 31%;
+    /* background-color: #efefef; */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;  
+    padding: 20px 0;
+    position: relative;
+    border: 1px solid #cc9f56;
+}
+
+.breathe {
+    margin: 0 40px;
+}
+
+.service-header {
+    /* background-color: rgb(169, 130, 68, 0.8); */
+    /* color: #efefef; */
+
+}
+
+.service-header h3 {
+    text-transform: uppercase;
+    font-family: 'OpenSans', helvetica, sans-serif;
+    font-weight: 900;
+    /* text-align: center; */
+}
+
+.service-header h4 {
+    color: #a98244;
+    font-size: 1.4em;
+    font-family: 'OpenSans',
+    helvetica,
+    sans-serif;
+    font-weight: lighter;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dollar {
+    font-size: .6em;
+}
+
+.service-list {
+    line-height: 2.5em;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    /* text-align: center; */
+}
+
+li:first-child {
+    border-top: 1px solid #efefef;
+}
+
+li {
+    /* border-top: .5px solid #efefef; */
+    border-bottom: 1px solid #efefef;
+}
+
+.pricing-cta {
+    width: 100%;
+    color: #efefef;
+    background-color: #cc9f56;
+    padding: 20px 0px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-transform: uppercase;
+    text-align: center;
+    transition: 350ms background-color;
+    /* margin-top: 50px; */
+}
+
+.pricing-cta:hover {
+    background-color: #a98244;
+}
+
+/* About Section */
+
+.about-quote {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.5em;
+    font-weight: lighter;
+    font-style: italic;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.col-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    /* font-family: 'Times New Roman', Times, serif; */
+}
+
+.col {
+    line-height: 2em;
+    /* margin: 0 50px; */
+    /* flex-basis: 40%; */
+}
+
+.first {
+    margin-right: 40px;
+}
+
+.second {
+    margin-left: 40px;
+}
+
+.col p:first-child {
+    margin-bottom: 20px;
+}
+
+.team {
+    margin-top: 50px;
+    height: 600px;
+    width: 100%;
+    background-image: url('../images/barbers.jpg');
+    overflow: hidden;
+    background-size: cover;
+}
+
+/* Apt Section */
+.apt-wrapper {
+    /* background-color: #efefef; */
+    height: 700px;
+}
+
+/* Date Picker */
+
+/* Removes the clear button from date inputs */
+
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+/* Removes the spin button */
+
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+/* Always display the drop down caret */
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #cc9f56;
+}
+
+/* A few custom styles for date inputs */
+
+input[type="date"] {
+    -webkit-appearance: none;
+    color: #cc9f56;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 1.5em;
+    border: 1px solid #cc9f56;
+    background: #ecf0f1;
+    padding: 15px;
+    display: inline-block !important;
+    visibility: visible !important;
+    width: 20%;
+}
+
+input[type="date"],
+focus {
+    color: #cc9f56;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+table {
+    border: none;
+}
+
+.row td {
+    padding: 15px 50px;
+    cursor: pointer;
+    background-color: #efefef;
+    /* font-size: 2em; */
+    color: #cc9f56;
+    /* letter-spacing: .3em; */
+    /* margin: 5px 0; */
+}
+
+.row td:hover {
+    background-color: yellow;
+}
+
+.hour {
+    font-size: 2em;
+    margin-right: 5px;
+}
+
+/* Contact Section */
+
+.contact-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.map {
+    height: 400px;
+    width: 100%;
+    flex-basis: 50%;
+}
+
+.contact-info {
+    background-color: #000;
+    color: #efefef;
+    flex-basis: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.3em;
+    font-weight: lighter;
+}
+
+.thin-gold-line {
+    background-color: #cc9f56;
+    width: 50px;
+    height: 1px;
+}
+
+.on-heading {
+    margin: 0px auto 50px auto;
+}
+
+/* Footer */
+
+.footer-wrapper {
+    background-color: rgb(0, 0, 0);
+    height: 300px;
+    margin-top: 50px;
+    color: #efefef;
+    padding: 50px 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-logo h3 {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+}
+
+.social-icon {
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: 350ms color;
+    color: #cc9f56;
+}
+
+.social-icon:hover {
+    color: #efefef;
 }

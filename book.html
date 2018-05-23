@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sharp Barber Spa</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/book.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+</head>
+
+<body>
+
+    <header class="page-header">
+        <div class="brand">
+            <a href="index.html"><h3 class="logo">Sharp Barber Spa</h3></a>
+        </div>
+        <!-- .brand -->
+
+        <nav>
+            <a href="book.html">Book Appointment</a>
+            <i class="fas fa-circle"></i>
+            <a href="#">Services</a>
+            <i class="fas fa-circle"></i>
+            <a href="#">About</a>
+            <i class="fas fa-circle"></i>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="section-wrapper">
+                <div class="section-heading">
+                    Book Appointment
+                </div>
+                <div class="thin-gold-line on-heading"></div>
+                <div class="apt-wrapper">
+
+                    <div class="date-picker" id="date-picker">
+                        <input id="calendar" type="date" min="" max="">
+                    </div>
+
+                    <div class="slot-times" id="slot-times">
+                        <div class="slot-time" id="1" data="9">
+                            <span class="hour">9</span> : 00 AM
+                        </div>
+                        <div class="slot-time" id="2" data="10">
+                            <span class="hour">10</span> : 00 AM
+                        </div>
+                        <div class="slot-time" id="3" data="11">
+                            <span class="hour">11</span> : 00 AM
+                        </div>
+                        <div class="slot-time" id="4" data="12">
+                            <span class="hour">12</span> : 00 PM
+                        </div>
+                        <div class="slot-time" id="5" data="13">
+                            <span class="hour">1</span> : 00 PM
+                        </div>
+                        <div class="slot-time" id="6" data="14">
+                            <span class="hour">2</span> : 00 PM
+                        </div>
+                        <div class="slot-time" id="7" data="15">
+                            <span class="hour">3</span> : 00 PM
+                        </div>
+                        <div class="slot-time" id="8" data="16">
+                            <span class="hour">4</span> : 00 PM
+                        </div>
+                        <div class="slot-time" id="9" data="17">
+                            <span class="hour">5</span> : 00 PM
+                        </div>
+                    </div> <!-- .slot-times -->
+
+                    <div class="book-cta">
+                        <a id="book-btn" class="cta apt-cta">Book Appointment</a>
+                    </div>
+
+                    <div class="success" id="success">
+                        <h2>Success!</h2>
+                        <div class="message">
+                            You have scheduled an appointment! You will receive a confirmation email shortly.
+                        </div>
+                    </div>
+
+                </div>
+                <!-- .apt-wrapper -->
+            </div>
+            <!-- .section-wrapper -->
+        </section>
+    </main>
+    <footer>
+        <div class="footer-wrapper">
+            <div class="footer-logo">
+                <h3>Sharp Barber Spa</h3>
+            </div>
+            <!-- <div class="thin-gold-line"></div> -->
+            <div class="social-links">
+                <i class="fab fa-facebook-square social-icon"></i>
+                <i class="fab fa-snapchat-ghost social-icon"></i>
+                <i class="fab fa-twitter social-icon"></i>
+                <i class="fab fa-instagram social-icon"></i>
+
+            </div>
+            <!-- <div class="thin-gold-line"></div> -->
+            <div class="copyright">
+                &copy; 2018 Sharp Barber Spa. All Rights Reserved.
+            </div>
+        </div>
+        <!-- .footer-wrapper -->
+    </footer>
+</body>
+
+<script src="js/apt.js"></script>
+
+</html>
