@@ -24,11 +24,11 @@
         <nav>
             <a href="book.html">Book Appointment</a>
             <i class="fas fa-circle"></i>
-            <a href="#">Services</a>
+            <a href="index.html#services-wrapper">Services</a>
             <i class="fas fa-circle"></i>
-            <a href="#">About</a>
+            <a href="index.html#about-wrapper">About</a>
             <i class="fas fa-circle"></i>
-            <a href="#">Contact</a>
+            <a href="index.html#contact-wrapper">Contact</a>
         </nav>
     </header>
 
@@ -43,6 +43,10 @@
 
                     <div class="date-picker" id="date-picker">
                         <input id="calendar" type="date" min="" max="">
+                    </div>
+
+                    <div class="instruction date-time" id="instruction">
+                        Please select a date and time for your appointment
                     </div>
 
                     <div class="slot-times" id="slot-times">
@@ -75,8 +79,35 @@
                         </div>
                     </div> <!-- .slot-times -->
 
+                    <!-- <div class="instruction date-time">
+                        Please fill out your contact info and select a service below
+                    </div> -->
+
+                    <div class="apt-form" id="apt-form">
+                        <form action="">
+                            <input type="text" id="name" class="text-field" placeholder="Name" pattern="[A-Za-z]">
+                            <input type="email" id="email" class="text-field" placeholder="Email">
+                            <input type="number" id="phone" class="text-field" placeholder="Phone number">
+                            <fieldset>
+                                <label class="box-container" for="haircut">Haircut
+                                    <input type="checkbox" id="haircut" name="service" value="haircut">
+                                    <span class="checkmark"></span> 
+                                </label>
+                                <label class="box-container" for="shave">Shave
+                                    <input type="checkbox" id="shave" name="service" value="shave">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </fieldset>
+                        </form>
+                    </div> <!-- .apt-form -->                    
+
+
                     <div class="book-cta">
                         <a id="book-btn" class="cta apt-cta">Book Appointment</a>
+                    </div>
+
+                    <div class="error" id="error">
+                        Please make sure to fill out all the information on this page before proceeding
                     </div>
 
                     <div class="success" id="success">

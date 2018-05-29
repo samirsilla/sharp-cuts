@@ -413,3 +413,8 @@ table {
 .social-icon:hover {
     color: #efefef;
 }
+
+.copyright {
+    font-size: 0.8em;
+    color: #aaa;
+}

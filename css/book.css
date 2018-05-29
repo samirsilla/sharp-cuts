@@ -2,7 +2,8 @@
 
 .apt-wrapper {
     /* background-color: #efefef; */
-    /* height: 800px; */
+    height: 1000px;
+    margin-bottom: 100px;
 }
 
 /* Date Picker */
@@ -10,7 +11,7 @@
 .date-picker {
     margin: 0 auto;
     text-align: center;
-    height: 350px;
+    /* height: 350px; */
 }
 
 /* Removes the clear button from date inputs */
@@ -99,7 +100,10 @@ table {
     letter-spacing: 0.2em;
     transition: 350ms background-color;
     cursor: pointer;
+    
 }
+
+
 
 .apt-cta:hover {
     background-color: rgb(0, 0, 0);
@@ -152,4 +156,130 @@ table {
 
 .message {
     font-size: 1.2em;
+}
+
+fieldset {
+    border: none;
+}
+
+form {
+    display: flex;
+    flex-flow: column nowrap;
+    /* width: 60%; */
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+    /* background-color: coral; */
+}
+
+.text-field {
+    height: 60px;
+    width: 40%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1em;
+    font-family: 'Lato', helvetica, sans-serif;
+    font-weight: 300;
+    color: #000;
+    /* letter-spacing: 0.1em; */
+}
+
+.text-field:focus {
+    outline-color: #cc9f56;
+}
+
+::placeholder {
+    color: #bbb;
+}
+
+:-ms-input-placeholder {
+    color: #bbb;
+
+}
+
+::-ms-input-placeholder {
+    color: #bbb;
+
+}
+
+.box-container {
+    height: 30px;
+    margin: 15px 20px;
+        display: inline-block;
+        position: relative;
+        padding-left: 35px;
+        /* margin-bottom: 12px; */
+        cursor: pointer;
+            font-family: 'Lato',
+            helvetica,
+            sans-serif;
+
+        font-size: 1em;
+        font-weight: 300;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+}
+
+.box-container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: 1px solid #ddd;
+}
+
+.box-container input:checked ~ .checkmark {
+    /* background-color: #cc9f56; */
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.box-container input:checked ~ .checkmark:after {
+    display: inline-block;
+}
+
+.box-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid #cc9f56;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.date-time {
+    margin: 100px auto;
+    text-align: center;
+    font-family: 'Lato', helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 1.2em;
+}   
+
+.error {
+    margin: 0 auto;
+    text-align: center;
+    color: red;
+        font-family: 'Lato',
+        helvetica,
+        sans-serif;
+
+    font-size: 1.2em;
+    font-weight: 300;
+    display: none;
 }

@@ -1,16 +1,76 @@
+// Create Appointment class
+
+class Appointment {
+    constructor(name, email, phone, service, datetime) {
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.service = service;
+        this.datetime = datetime;
+    }
+}
+
+
 // Load appointment data
 
 const aptTimeSlots = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 let apts = [];
 
-(function loadAppointmentData() {
-    const apt1 = new Date(2018, 4, 25, 10);
-    const apt2 = new Date(2018, 4, 25, 11);
-    const apt3 = new Date(2018, 4, 25, 12);
-    const apt4 = new Date(2018, 4, 26, 12);
+// (function loadAppointmentData() {
+//     const appointment1 = new Appointment('Sam', 'sam@aol.com', '813-115-5589', 'haircut', new Date(2018, 4, 30, 13));
+//     // const apt1 = new Date(2018, 4, 25, 10);
+//     // const apt2 = new Date(2018, 4, 25, 11);
+//     // const apt3 = new Date(2018, 4, 25, 12);
+//     // const apt4 = new Date(2018, 4, 26, 12);
 
-    apts.push(apt1, apt2, apt3, apt4);
+//     apts.push(appointment1);
+// })();
+
+(function loadLocalStorageData() {
+    if (localStorage.getItem('appointments') === null) {
+    localStorage.setItem('appointments', JSON.stringify(apts));
+    } else {
+        let storedApts = JSON.parse(localStorage.getItem('appointments'));
+        // console.log(storedApts);
+        apts = storedApts;
+        for (let i=0; i<apts.length; i++) {
+            let year = 0;
+            let month = 0;
+            let day = 0;
+            let hours = 0;
+
+            year = parseInt(apts[i].datetime.toString().substring(0, 4));
+            month = parseInt(apts[i].datetime.toString().substring(5, 7)) - 1;
+            day = parseInt(apts[i].datetime.toString().substring(8, 10));
+            hours = parseInt(apts[i].datetime.toString().substring(11, 13));
+
+            // console.log(year);
+            // console.log(month);
+            // console.log(day);
+            // console.log(hours);
+
+
+            let date = new Date(year, month, day, hours);
+            // date.setDate(date.getMonth() - 1);
+            // console.log(date);
+            apts[i].datetime = date;
+        }
+    }
+    // console.log(apts[0].datetime);
 })();
+
+
+
+
+
+
+
+
+// Declare global variables
+
+let selectedDay = '';
+let lastSelection = '';
+let counter = 0;
 
 
 // Set up reference to DOM
@@ -20,6 +80,14 @@ const aptDiv = document.getElementById('slot-times');
 const bookBtnClicked = document.getElementById('book-btn');
 const successDiv = document.getElementById('success');
 const datePickerDiv = document.getElementById('date-picker');
+const aptForm = document.getElementById('apt-form');
+const instruction = document.getElementById('instruction');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const phoneInput = document.getElementById('phone');
+const haircutInput = document.getElementById('haircut');
+const shaveInput = document.getElementById('shave');
+const errorMessage = document.getElementById('error');
 
 
 // Set up event listeners
@@ -43,7 +111,6 @@ bookBtnClicked.addEventListener('click', bookAppointment);
     setDateRange(minDate, maxDate);
     selectTodaysDate(minDate);
     displayAvailableApts(today);
-
 })();
 
 function buildDateString(date) {
@@ -63,11 +130,11 @@ function setDateRange(minDate, maxDate) {
 
 function selectTodaysDate(date) {
     calendar.value = date;
+    selectedDay = calendar.value;
 }
 
 
 // Display selected date
-let selectedDay = '';
 
 function showApts(e) {
     selectedDay = e.target.value;
@@ -85,11 +152,11 @@ function displayAvailableApts(day) {
     let takenSlots = [];
 
     let todaysApts = apts.filter(function (val) {
-        return val.getDate() === day;
+        return val.datetime.getDate() === day;
     });
 
     for (let i=0; i<todaysApts.length; i++) {
-        takenSlots.push(todaysApts[i].getHours());
+        takenSlots.push(todaysApts[i].datetime.getHours());
     }
 
     for (let i=0; i<aptTimeSlots.length; i++) {
@@ -116,19 +183,15 @@ function displayTimeSlot(cell, displayValue) {
 
 // Select time slots
 
-let lastSelection = '';
 
 function selectTime(e) {
     if (e.target.getAttribute('class') === 'slot-time') {
         resetLastSelection(lastSelection);
         lastSelection = e.target;
         e.target.classList.add('select');
-        // e.target.style.backgroundColor = '#cc9f56';
-        // e.target.style.color = '#fff';
     } 
 }
 
-let counter = 0;
 function resetLastSelection(item) {
     if (counter !== 0 && lastSelection !== '') {
         item.classList.remove('select');
@@ -139,12 +202,22 @@ function resetLastSelection(item) {
 // Book Appointment
 
 function bookAppointment() {
-    apts.push(createDateString(selectedDay));
-    hideAptSchedulingElements();
-    displaySuccessMessage();
+    if (validateInputs()) {
+        let service = getAppointmentService(haircutInput.checked, shaveInput.checked);
+        
+        let newApt = new Appointment(nameInput.value, emailInput.value, phoneInput.value, service, createDateObject(selectedDay));
+        console.log(newApt);
+        
+        // let apt = createDateObject(selectedDay);
+        apts.push(newApt);
+
+
+        hideAptSchedulingElements();
+        displaySuccessMessage();
+    }
 }
 
-function createDateString(date) {
+function createDateObject(date) {
     let year = Number(date.slice(0, 4));
     let month = Number(date.slice(5, 7) - 1);
     let day = Number(date.slice(8, 10));
@@ -157,48 +230,40 @@ function hideAptSchedulingElements() {
     aptDiv.style.display = 'none';
     bookBtnClicked.style.display = 'none';
     datePickerDiv.style.display = 'none';
+    aptForm.style.display = 'none';
+    instruction.style.display = 'none';
+    errorMessage.style.display = 'none';
 }
 
 function displaySuccessMessage() {
     successDiv.style.display = 'block';
 }
 
-// function checkIfThatDay(apt) {
-//     console.log(apt.getDate());
-//     if (apt.getDate() === 25) {
-//         console.log('ues');
-//     } else {
-//         console.log('no');
-//     }
-// }
+// Validate all input fields before creating appointment
 
-// checkIfThatDay(apt1);
+function validateInputs() {
+    let isValid = false;
+    if (nameInput.value && emailInput.value && phoneInput.value && (haircutInput.checked || shaveInput.checked)) {
+        isValid = true;
+    } else {
+        errorMessage.style.display = 'block';
+    }
+    return isValid;
+}
 
-// for (let i = 0; i < apts.length; i++) {
-//     if (apts[i].getDate() === 25) {
-//         console.log(apts[i].toString());
-//     } else {
-//         console.log('not on the 25th');
-//     }
-// }
-
-
-
-// function checkIfThatHour(apt) {
-//     if (apt.getHours() === 10) {
-//         console.log('yes hour');
-//     } else {
-//         console.log('no hour');
-//     }
-// }
-
-// checkIfThatHour(apt1);
+function getAppointmentService(haircut, shave) {
+    let serviceStr = '';
+    if (haircut && shave) {
+        serviceStr = 'haircut and shave';
+    } else if (haircut) {
+        serviceStr = 'haircut';
+    } else if (shave) {
+        serviceStr = 'shave';
+    }
+    return serviceStr;
+}
 
 
-
-
-
-
-
+// TODO: When book appt is pressed, use local storage functions located at top instead of current function 
 
 
