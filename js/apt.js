@@ -16,22 +16,13 @@ class Appointment {
 const aptTimeSlots = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 let apts = [];
 
-// (function loadAppointmentData() {
-//     const appointment1 = new Appointment('Sam', 'sam@aol.com', '813-115-5589', 'haircut', new Date(2018, 4, 30, 13));
-//     // const apt1 = new Date(2018, 4, 25, 10);
-//     // const apt2 = new Date(2018, 4, 25, 11);
-//     // const apt3 = new Date(2018, 4, 25, 12);
-//     // const apt4 = new Date(2018, 4, 26, 12);
-
-//     apts.push(appointment1);
-// })();
-
 (function loadLocalStorageData() {
     if (localStorage.getItem('appointments') === null) {
     localStorage.setItem('appointments', JSON.stringify(apts));
     } else {
+        apts = [];
         let storedApts = JSON.parse(localStorage.getItem('appointments'));
-        // console.log(storedApts);
+        console.log(storedApts);
         apts = storedApts;
         for (let i=0; i<apts.length; i++) {
             let year = 0;
@@ -39,10 +30,12 @@ let apts = [];
             let day = 0;
             let hours = 0;
 
-            year = parseInt(apts[i].datetime.toString().substring(0, 4));
-            month = parseInt(apts[i].datetime.toString().substring(5, 7)) - 1;
-            day = parseInt(apts[i].datetime.toString().substring(8, 10));
-            hours = parseInt(apts[i].datetime.toString().substring(11, 13));
+            year = parseInt(apts[i].datetime.toString().substring(0, 4), 10);
+            month = parseInt(apts[i].datetime.toString().substring(5, 7), 10) - 1;
+            day = parseInt(apts[i].datetime.toString().substring(8, 10), 10);
+            hours = parseInt(apts[i].datetime.toString().substring(11, 13), 10);
+
+            // console.log(apts[i].datetime.toString());
 
             // console.log(year);
             // console.log(month);
@@ -111,6 +104,8 @@ bookBtnClicked.addEventListener('click', bookAppointment);
     setDateRange(minDate, maxDate);
     selectTodaysDate(minDate);
     displayAvailableApts(today);
+    console.log(today);
+    console.log(minDate, maxDate);
 })();
 
 function buildDateString(date) {
@@ -119,7 +114,11 @@ function buildDateString(date) {
     if (date.getMonth() + 1 < 10) {
         dateStr += 0;
     }
-    dateStr = dateStr + (date.getMonth() + 1) + '-' + date.getDate();
+    dateStr += date.getMonth() + 1 + '-';
+    if (date.getDate() < 10) {
+        dateStr += 0;
+    }
+    dateStr += date.getDate();
     return dateStr;
 }
 
@@ -206,11 +205,10 @@ function bookAppointment() {
         let service = getAppointmentService(haircutInput.checked, shaveInput.checked);
         
         let newApt = new Appointment(nameInput.value, emailInput.value, phoneInput.value, service, createDateObject(selectedDay));
-        console.log(newApt);
         
         // let apt = createDateObject(selectedDay);
         apts.push(newApt);
-
+        localStorage.setItem('appointments', JSON.stringify(apts));
 
         hideAptSchedulingElements();
         displaySuccessMessage();

@@ -1,8 +1,12 @@
+/* 
+    book.css
+    contains styling for the appointment booking page of the site
+*/
+
+
 /* Apt Section */
 
 .apt-wrapper {
-    /* background-color: #efefef; */
-    height: 1000px;
     margin-bottom: 100px;
 }
 
@@ -11,7 +15,11 @@
 .date-picker {
     margin: 0 auto;
     text-align: center;
-    /* height: 350px; */
+}
+
+#calendar {
+    width: 40%;
+    text-align: center;
 }
 
 /* Removes the clear button from date inputs */
@@ -56,32 +64,6 @@ focus {
     -moz-box-shadow: none;
 }
 
-table {
-    border: none;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.row td {
-    padding: 20px 10px;
-    width: 120px;
-    cursor: pointer;
-    background-color: #efefef;
-    /* font-size: 2em; */
-    color: #cc9f56;
-    /* letter-spacing: .3em; */
-    margin: 2px;
-    transition: 350ms background-color;
-    /* transition: 350ms color; */
-    /* cursor: not-allowed; */
-    text-align: center;
-}
-
-.row td:hover {
-    background-color: #cc9f56;
-    color: #fff;
-}
-
 .hour {
     font-size: 2em;
     margin-right: 5px;
@@ -100,10 +82,8 @@ table {
     letter-spacing: 0.2em;
     transition: 350ms background-color;
     cursor: pointer;
-    
+    text-transform: uppercase;
 }
-
-
 
 .apt-cta:hover {
     background-color: rgb(0, 0, 0);
@@ -165,11 +145,9 @@ fieldset {
 form {
     display: flex;
     flex-flow: column nowrap;
-    /* width: 60%; */
     justify-content: center;
     align-items: center;
     margin: 100px auto;
-    /* background-color: coral; */
 }
 
 .text-field {
@@ -181,7 +159,6 @@ form {
     font-family: 'Lato', helvetica, sans-serif;
     font-weight: 300;
     color: #000;
-    /* letter-spacing: 0.1em; */
 }
 
 .text-field:focus {
@@ -237,10 +214,6 @@ form {
     border: 1px solid #ddd;
 }
 
-.box-container input:checked ~ .checkmark {
-    /* background-color: #cc9f56; */
-}
-
 .checkmark:after {
     content: "";
     position: absolute;
@@ -282,4 +255,41 @@ form {
     font-size: 1.2em;
     font-weight: 300;
     display: none;
+}
+
+.section-wrapper {
+    padding: 100px 40px 0 40px;
+}
+
+.section-heading {
+    color: rgb(169, 130, 68);
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 2em;
+    letter-spacing: .3em;
+}
+
+.thin-gold-line {
+    background-color: #cc9f56;
+    width: 50px;
+    height: 1px;
+}
+
+.on-heading {
+    margin: 0px auto 50px auto;
+} 
+
+/* Media Queries */
+
+@media (max-width: 1000px) {
+    .text-field {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    #calendar {
+        width: 80%;
+    }
 }
