@@ -28,7 +28,7 @@
 }
 
 .cta {
-    background-color: rgb(169, 130, 68, 0.8);
+    background-color: rgba(169, 130, 68, 0.8);
     padding: 20px 25px;
     color: #efefef;
     text-transform: uppercase;
