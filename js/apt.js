@@ -1,3 +1,8 @@
+(function () {
+    'use strict';
+})();
+
+
 // Create Appointment class
 
 class Appointment {
@@ -32,6 +37,7 @@ let apts = [];
         }
     }
 })();
+
 
 // Declare global variables
 
@@ -109,8 +115,8 @@ function selectTodaysDate(date) {
 
 function showApts(e) {
     selectedDay = e.target.value;
-    let trimSelectedDay = selectedDay.slice(selectedDay.length - 2, selectedDay.length);
-    let day = Number(trimSelectedDay);
+    const trimSelectedDay = selectedDay.slice(selectedDay.length - 2, selectedDay.length);
+    const day = Number(trimSelectedDay);
     displayAvailableApts(day);
     resetLastSelection(lastSelection);
 }
@@ -138,7 +144,7 @@ function displayAvailableApts(day) {
     }
 
     for (let i=0; i<aptDiv.children.length; i++) {
-        let slot = aptDiv.children[i];
+        const slot = aptDiv.children[i];
         
         if (availableApts.includes(Number(slot.getAttribute('data')))) {
             displayTimeSlot(slot, 'inline-block');
@@ -155,7 +161,6 @@ function displayTimeSlot(cell, displayValue) {
 
 // Select time slots
 
-
 function selectTime(e) {
     if (e.target.getAttribute('class') === 'slot-time') {
         resetLastSelection(lastSelection);
@@ -170,6 +175,7 @@ function resetLastSelection(item) {
     }
     counter++;
 }
+
 
 // Book Appointment
 
@@ -207,6 +213,7 @@ function hideAptSchedulingElements() {
 function displaySuccessMessage() {
     successDiv.style.display = 'block';
 }
+
 
 // Validate all input fields before creating appointment
 
