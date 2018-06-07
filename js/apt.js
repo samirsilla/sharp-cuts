@@ -20,22 +20,14 @@ let apts = [];
     if (localStorage.getItem('appointments') === null) {
         localStorage.setItem('appointments', JSON.stringify(apts));
     } else {
-        let storedApts = JSON.parse(localStorage.getItem('appointments'));
-        apts = storedApts;
+        apts = JSON.parse(localStorage.getItem('appointments'));
         for (let i=0; i<apts.length; i++) {
-            let year = 0;
-            let month = 0;
-            let day = 0;
-            let hours = 0;
+            const year = parseInt(apts[i].datetime.toString().substring(0, 4), 10);
+            const month = parseInt(apts[i].datetime.toString().substring(5, 7), 10) - 1;
+            const day = parseInt(apts[i].datetime.toString().substring(8, 10), 10);
+            const hours = parseInt(apts[i].datetime.toString().substring(11, 13), 10);
 
-            year = parseInt(apts[i].datetime.toString().substring(0, 4), 10);
-            month = parseInt(apts[i].datetime.toString().substring(5, 7), 10) - 1;
-            day = parseInt(apts[i].datetime.toString().substring(8, 10), 10);
-            hours = parseInt(apts[i].datetime.toString().substring(11, 13), 10);
-
-            let date = new Date(year, month, day, hours);
-            console.log(date);
-            
+            const date = new Date(Date.UTC(year, month, day, hours));
             apts[i].datetime = date;
         }
     }
@@ -75,13 +67,13 @@ bookBtnClicked.addEventListener('click', bookAppointment);
 // Set up calendar picker
 
 (function setUpCalendarPicker() {
-    let today = new Date();
+    const today = new Date();
 
     let in30Days = new Date();
     in30Days.setDate(today.getDate() + 30);
 
-    let minDate = buildDateString(today);
-    let maxDate = buildDateString(in30Days);
+    const minDate = buildDateString(today);
+    const maxDate = buildDateString(in30Days);
 
     setDateRange(minDate, maxDate);
     selectTodaysDate(minDate);
@@ -135,7 +127,8 @@ function displayAvailableApts(day) {
     });
 
     for (let i=0; i<todaysApts.length; i++) {
-        takenSlots.push(todaysApts[i].datetime.getHours());
+        takenSlots.push(todaysApts[i].datetime.getHours() + 4);
+        // .getHours() + 4 is for the timezone offset EDT
     }
 
     for (let i=0; i<aptTimeSlots.length; i++) {
@@ -182,9 +175,9 @@ function resetLastSelection(item) {
 
 function bookAppointment() {
     if (validateInputs()) {
-        let service = getAppointmentService(haircutInput.checked, shaveInput.checked);
+        const service = getAppointmentService(haircutInput.checked, shaveInput.checked);
         
-        let newApt = new Appointment(nameInput.value, emailInput.value, phoneInput.value, service, createDateObject(selectedDay));
+        const newApt = new Appointment(nameInput.value, emailInput.value, phoneInput.value, service, createDateObject(selectedDay));
         
         apts.push(newApt);
         localStorage.setItem('appointments', JSON.stringify(apts));
@@ -195,12 +188,11 @@ function bookAppointment() {
 }
 
 function createDateObject(date) {
-    let year = Number(date.slice(0, 4));
-    let month = Number(date.slice(5, 7) - 1);
-    let day = Number(date.slice(8, 10));
-    let hours = Number(lastSelection.getAttribute('data'));
-    let newApt = new Date(Date.UTC(year, month, day, hours));
-    return newApt;
+    const year = Number(date.slice(0, 4));
+    const month = Number(date.slice(5, 7) - 1);
+    const day = Number(date.slice(8, 10));
+    const hours = Number(lastSelection.getAttribute('data'));
+    return new Date(Date.UTC(year, month, day, hours));
 }
 
 function hideAptSchedulingElements() {
