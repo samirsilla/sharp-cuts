@@ -18,11 +18,9 @@ let apts = [];
 
 (function loadLocalStorageData() {
     if (localStorage.getItem('appointments') === null) {
-    localStorage.setItem('appointments', JSON.stringify(apts));
+        localStorage.setItem('appointments', JSON.stringify(apts));
     } else {
-        apts = [];
         let storedApts = JSON.parse(localStorage.getItem('appointments'));
-        console.log(storedApts);
         apts = storedApts;
         for (let i=0; i<apts.length; i++) {
             let year = 0;
@@ -35,29 +33,13 @@ let apts = [];
             day = parseInt(apts[i].datetime.toString().substring(8, 10), 10);
             hours = parseInt(apts[i].datetime.toString().substring(11, 13), 10);
 
-            // console.log(apts[i].datetime.toString());
-
-            // console.log(year);
-            // console.log(month);
-            // console.log(day);
-            // console.log(hours);
-
-
             let date = new Date(year, month, day, hours);
-            // date.setDate(date.getMonth() - 1);
-            // console.log(date);
+            console.log(date);
+            
             apts[i].datetime = date;
         }
     }
-    // console.log(apts[0].datetime);
 })();
-
-
-
-
-
-
-
 
 // Declare global variables
 
@@ -104,8 +86,6 @@ bookBtnClicked.addEventListener('click', bookAppointment);
     setDateRange(minDate, maxDate);
     selectTodaysDate(minDate);
     displayAvailableApts(today);
-    console.log(today);
-    console.log(minDate, maxDate);
 })();
 
 function buildDateString(date) {
@@ -206,7 +186,6 @@ function bookAppointment() {
         
         let newApt = new Appointment(nameInput.value, emailInput.value, phoneInput.value, service, createDateObject(selectedDay));
         
-        // let apt = createDateObject(selectedDay);
         apts.push(newApt);
         localStorage.setItem('appointments', JSON.stringify(apts));
 
@@ -220,7 +199,7 @@ function createDateObject(date) {
     let month = Number(date.slice(5, 7) - 1);
     let day = Number(date.slice(8, 10));
     let hours = Number(lastSelection.getAttribute('data'));
-    let newApt = new Date(year, month, day, hours);
+    let newApt = new Date(Date.UTC(year, month, day, hours));
     return newApt;
 }
 
@@ -260,8 +239,4 @@ function getAppointmentService(haircut, shave) {
     }
     return serviceStr;
 }
-
-
-// TODO: When book appt is pressed, use local storage functions located at top instead of current function 
-
 
